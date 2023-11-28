@@ -12,9 +12,8 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     try {
         switch (event.httpMethod) {
             case 'GET':
-                const getResponse = getSpaces(event, dynamodbClient);
+                const getResponse = await getSpaces(event, dynamodbClient);
                 return getResponse;
-                break;
             case 'POST':
                 const postResponse = postSpaces(event, dynamodbClient);
                 return postResponse;
